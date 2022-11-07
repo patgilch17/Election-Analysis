@@ -4,6 +4,10 @@ import os
 #assign a variable for the pash to the csv file.  Using os.path.join so that in case this is run on a different
 #operating system the file path isn't messed up.  mac uses / windows uses \ resources/election_results.csv wouldn't run on windows.
 filetoread = os.path.join('Resources','election_results.csv')
+
+#assign a variable to the file we will write too
+filetowrite = os.path.join('Analysis','election_analysis.txt')
+
 #election_data = open(filetoread,'r')
 
 #election_data.close()
@@ -17,10 +21,9 @@ with open(filetoread,'r') as election_data:
     headers = next(file_reader)
     print(headers)
     #print each row in the csv file
-    #for row in file_reader:
-    #    print(row)
+    for row in file_reader:
+        print(row)
 
-filetowrite = os.path.join('Analysis','election_analysis.txt')
 
 #open the text file to write in
 with open(filetowrite,'w') as election_analysis:
